@@ -1,0 +1,64 @@
+from tkinter import*
+root=Tk()
+root.title("Simple Calculator")
+root.geometry("400x400")
+
+def calculate_sum():
+    try:
+        num1=float(tb1.get())
+        num2=float(tb2.get())
+        result=num1+num2
+        ans.config(text=f"{result}",fg="green")
+    except:
+        ans.config(text="Enter valid number",fg="red")
+
+def calculate_difference():
+    try:
+        num1=float(tb1.get())
+        num2=float(tb2.get())
+        result=num1-num2
+        ans.config(text=f"{result}",fg="green")
+    except:
+        ans.config(text="Enter valid number",fg="red")
+
+def calculate_product():
+    try:
+        num1=float(tb1.get())
+        num2=float(tb2.get())
+        result=num1*num2
+        ans.config(text=f"{result}",fg="green")
+    except:
+        ans.config(text="Enter valid number",fg="red")
+
+def calculate_quotient():
+    try:
+        num1=float(tb1.get())
+        num2=float(tb2.get())
+        result=num1/num2
+        ans.config(text=f"{result}",fg="green")
+    except:
+        ans.config(text="Enter valid number",fg="red")
+
+def clearValue():
+    tb1.delete(0,"end")
+    tb2.delete(0,"end")
+    ans.config(text="")
+
+
+
+info=Label(root,text="Enter any two numbers",fg='green')
+info.place(x=20,y=10)
+tb1=Entry(root)
+tb1.place(x=20,y=40)
+tb2=Entry(root)
+tb2.place(x=150,y=40)
+
+sum=Button(root,text="Sum",padx=10,command=calculate_sum).place(x=20,y=100)
+difference=Button(root,text="Subtract",padx=10,command=calculate_difference).place(x=90,y=100)
+product=Button(root,text="Product",padx=10,command=calculate_product).place(x=170,y=100)
+quotient=Button(root,text="Divide",padx=10,command=calculate_quotient).place(x=250,y=100)
+clear=Button(root,text="Clear",command=clearValue).place(x=330,y=100)
+
+ans=Label(root,text="")
+ans.place(x=150,y=150)
+root.mainloop()
